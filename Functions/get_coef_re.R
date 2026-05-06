@@ -1,3 +1,5 @@
+
+# Get random slopes and CI from gllvm object
 get_coef_re <- function(object, add_main = TRUE){
 
   Xcoef <- as.matrix(t(object$params$Br))

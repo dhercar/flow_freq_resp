@@ -109,7 +109,6 @@ out_data %>% na.omit() %>% pivot_longer(c(bray, balanced, gradient), names_to = 
   summarise(rate = mean(rate)) %>%
   ggplot(aes(x = partition, y = rate)) +
   geom_violin(aes(fill = var, group = interaction(partition, var)), bounds = c(0,1), colour = 'transparent', scale = 'width', alpha = 0.2, adjust = 1, trim = FALSE) +
-  geom_jitter(height = 0, width = 0.2, shape = 16, aes(colour = var), size = 0.5, alpha = 0.5) +
   stat_summary(geom = 'linerange', aes(colour = var, group = interaction(partition, var)), position = position_dodge2(width = 0.9), fun.max = function(x) mean(x) + sd(x), fun.min = function(x) mean(x) - sd(x) ) +
   stat_summary(geom = 'point', shape = 21, fill = 'white',aes(colour = var, group = interaction(partition, var)), position = position_dodge2(width = 0.9), fun = function(x) mean(x)) +
   xlab('dissimilarity partition') +
